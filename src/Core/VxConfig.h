@@ -4,11 +4,11 @@
 *
 * Este archivo fundamental es el punto de entrada de Vertex Engine
 * encabezados funturos dependeran de el para configuraciones para compiladores
-* gestion de versionado de C/C++, tamaÒos de tipos limites numericos y entre
+* gestion de versionado de C/C++, tama√±os de tipos limites numericos y entre
 * otras cosas de las cuales Vertex Engine va a depender.
 * 
 * Empezar a leer el codigo fuente de este archivo es un punto de inicio para 
-* entender el codigo funete de Vertex Engine.
+* entender el codigo fuente de Vertex Engine.
 * 
 * 
 *
@@ -485,54 +485,54 @@
 #endif
 
 
-// Asegurarse de que haya un est·ndar definido
+// Asegurarse de que haya un est√°ndar definido
 #ifndef VX_CPP_STANDARD
 	#define VX_CPP_STANDARD "Desconocido"
 #endif
 
 /*
-* Definiciones especÌficas para MSVC. Este bloque de cÛdigo define macros
-* que son especÌficas del compilador MSVC. Cada macro se asocia con
-* caracterÌsticas del compilador que permiten optimizar el cÛdigo y aprovechar
-* las caracterÌsticas propias de MSVC, como las convenciones de llamada y el manejo
-* de excepciones. Estas macros aseguran que el cÛdigo se ejecute de manera eficiente
-* en este entorno especÌfico de compilaciÛn.
+* Definiciones espec√≠ficas para MSVC. Este bloque de c√≥digo define macros
+* que son espec√≠ficas del compilador MSVC. Cada macro se asocia con
+* caracter√≠sticas del compilador que permiten optimizar el c√≥digo y aprovechar
+* las caracter√≠sticas propias de MSVC, como las convenciones de llamada y el manejo
+* de excepciones. Estas macros aseguran que el c√≥digo se ejecute de manera eficiente
+* en este entorno espec√≠fico de compilaci√≥n.
 */
 #if defined(VX_COMP_MSVC) 
 	#define VX_FALLTHROUGH [[fallthrough]] // Indica que no hay una ruptura intencional en un switch-case
-	#define VX_ALIGNOF __alignof           // Obtiene la alineaciÛn de un tipo
-	#define VX_BASED __based               // EspecÌfico de MSVC para punteros basados
-	#define VX_CDECL __cdecl               // ConvenciÛn de llamada est·ndar de C
+	#define VX_ALIGNOF __alignof           // Obtiene la alineaci√≥n de un tipo
+	#define VX_BASED __based               // Espec√≠fico de MSVC para punteros basados
+	#define VX_CDECL __cdecl               // Convenci√≥n de llamada est√°ndar de C
 	#define VX_DECLSPEC(x) __declspec(x)   // Especificador de atributos de MSVC
-	#define VX_FASTCALL __fastcall         // ConvenciÛn de llamada optimizada para velocidad
-	#define VX_STDCALL __stdcall           // ConvenciÛn de llamada est·ndar de Windows
+	#define VX_FASTCALL __fastcall         // Convenci√≥n de llamada optimizada para velocidad
+	#define VX_STDCALL __stdcall           // Convenci√≥n de llamada est√°ndar de Windows
 	#define VX_TRY __try                   // Bloque try de MSVC para manejo estructurado de excepciones
 	#define VX_LEAVE __leave               // Salida segura de bloques try
 	#define VX_UUIDOF __uuidof             // Obtiene el UUID de un tipo
 	#define VX_VIRTUAL_INHERITANCE __virtual_inheritance // Herencia virtual en MSVC
-	#define VX_NODISCARD [[nodiscard]]     // Indica que el valor de una funciÛn no debe ser descartado
-	#define VX_NORETURN [[noreturn]]       // Indica que la funciÛn no retorna
-	#define VX_ALIGN(alignment) __declspec(align(alignment)) // Especifica alineaciÛn de memoria
-	#define VX_FORCE_INLINE __forceinline  // Fuerza la inlineaciÛn de una funciÛn
+	#define VX_NODISCARD [[nodiscard]]     // Indica que el valor de una funci√≥n no debe ser descartado
+	#define VX_NORETURN [[noreturn]]       // Indica que la funci√≥n no retorna
+	#define VX_ALIGN(alignment) __declspec(align(alignment)) // Especifica alineaci√≥n de memoria
+	#define VX_FORCE_INLINE __forceinline  // Fuerza la inlineaci√≥n de una funci√≥n
 	#define VX_INLINE __inline           // Alternativa para inline en C++17
 	#define VX_RESTRICT __restrict         // Indica exclusividad de punteros
-	#define VX_NO_VTABLE __declspec(novtable) // OptimizaciÛn para clases base abstractas
+	#define VX_NO_VTABLE __declspec(novtable) // Optimizaci√≥n para clases base abstractas
 	#define VX_PRAGMA(x) __pragma(x)       // Manejo de pragmas en MSVC
 	#define VX_WCHAR  __wchar_t            // Tipo wchar_t de MSVC
 	#define VX_ALLOCATOR __declspec(allocator) // Para asignaciones
-	#define VX_ASM __asm                   // Ensamblador en lÌnea
+	#define VX_ASM __asm                   // Ensamblador en l√≠nea
 	#define VX_INT8 __int8                 // Tipo entero de 8 bits en MSVC
 	#define VX_INT16 __int16               // Tipo entero de 16 bits en MSVC
 	#define VX_INT32 __int32               // Tipo entero de 32 bits en MSVC
 	#define VX_INT64 __int64               // Tipo entero de 64 bits en MSVC
-	#define VX_LIKELY   [[likely]]         // Indica que una condiciÛn es probable
-	#define VX_UNLIKELY [[unlikely]]       // Indica que una condiciÛn es poco probable
+	#define VX_LIKELY   [[likely]]         // Indica que una condici√≥n es probable
+	#define VX_UNLIKELY [[unlikely]]       // Indica que una condici√≥n es poco probable
 
 	/*
 	* [[nodiscard]] con mensaje en versiones modernas de C++. Este bloque
 	* define la macro VX_NODISCARD_MSG para utilizarla en versiones de C++
 	* que soporten el atributo [[nodiscard]] con mensajes, asegurando que
-	* el valor retornado por una funciÛn no sea descartado, y proporcionando
+	* el valor retornado por una funci√≥n no sea descartado, y proporcionando
 	* un mensaje en las versiones que lo soporten.
 	*/
 	#if defined(__has_cpp_attribute) && __has_cpp_attribute(nodiscard) >= 201907L
@@ -542,10 +542,10 @@
 	#endif
 	
 	/*
-	* Definiciones de constexpr seg˙n la versiÛn de C++. Este bloque eval˙a
-	* la versiÛn de C++ utilizada y define las macros correspondientes a
+	* Definiciones de constexpr seg√∫n la versi√≥n de C++. Este bloque eval√∫a
+	* la versi√≥n de C++ utilizada y define las macros correspondientes a
 	* las versiones de C++17, C++20 y C++23 para el uso de constexpr, lo que
-	* optimiza el cÛdigo seg˙n la versiÛn del compilador.
+	* optimiza el c√≥digo seg√∫n la versi√≥n del compilador.
 	*/
 	#if VX_CPLUSPLUS
 		#if _VX_HAS_CXX17 
@@ -572,7 +572,7 @@
 	/*
 	* [[msvc::known_semantics]] en versiones recientes de MSVC. En este bloque
 	* se define la macro VX_KNOWN_SEMANTICS que utiliza el atributo [[msvc::known_semantics]]
-	* en las versiones m·s recientes de MSVC para optimizar el comportamiento del compilador.
+	* en las versiones m√°s recientes de MSVC para optimizar el comportamiento del compilador.
 	*/
 	#if _MSC_VER >= _VX_MSVC_VER19
 		#define VX_KNOWN_SEMANTICS [[msvc::known_semantics]]
@@ -580,14 +580,14 @@
 		#define VX_KNOWN_SEMANTICS 
 	#endif
 	
-	#define VX_DEPRECATED [[deprecated]] // Marca una funciÛn o variable como obsoleta
+	#define VX_DEPRECATED [[deprecated]] // Marca una funci√≥n o variable como obsoleta
 	#define VX_DEPRECATED_MESSAGE(_Message) __declspec(deprecated(_Message)) // Mensaje de obsolescencia
 
 /*
-* Definiciones especÌficas para GCC. Este bloque de cÛdigo define macros
-* que son especÌficas del compilador GCC, incluyendo caracterÌsticas como
-* el manejo de atributos de las funciones, la inlineaciÛn forzada y las
-* convenciones de llamada. Estas macros est·n diseÒadas para mejorar la
+* Definiciones especificas para GCC. Este bloque de codigo define macros
+* que son especificas del compilador GCC, incluyendo caracter√≠sticas como
+* el manejo de atributos de las funciones, la inlineacion forzada y las
+* convenciones de llamada. Estas macros est√°n dise√±adas para mejorar la
 * eficiencia y garantizar la compatibilidad con GCC.
 */
 #elif defined(VX_COMP_GCC)
@@ -625,10 +625,10 @@
 	#define VX_NODISCARD_MSG(_Msg)
 
 /*
-* Definiciones especÌficas para Clang. Este bloque de cÛdigo define macros
-* que son especÌficas del compilador Clang, incluyendo atributos como
+* Definiciones especificas para Clang. Este bloque de codigo define macros
+* que son espec√≠ficas del compilador Clang, incluyendo atributos como
 * [[nodiscard]], [[noreturn]] y otros. Estas macros permiten optimizar
-* el cÛdigo y asegurar la compatibilidad con Clang.
+* el c√≥digo y asegurar la compatibilidad con Clang.
 */
 #elif defined(VX_COMP_CLANG)
 	#if __clang_major__ >= 7
@@ -664,8 +664,8 @@
 
 /*
 * Caso de compilador no soportado. Si el compilador no es reconocido como MSVC,
-* GCC o Clang, se definen macros vacÌas o genÈricas para evitar errores de compilaciÛn
-* y permitir que el cÛdigo se ejecute de manera segura, aunque con menos optimizaciÛn.
+* GCC o Clang, se definen macros vac√≠as o genericas para evitar errores de compilaci√≥n
+* y permitir que el c√≥digo se ejecute de manera segura, aunque con menos optimizaci√≥n.
 */
 #else
 	#define VX_NODISCARD 
@@ -704,17 +704,17 @@
 
 
 /*
-* ComprobaciÛn de la arquitectura del sistema y definiciÛn de macros
-* especÌficas para cada tipo de arquitectura. Este bloque eval˙a la
-* arquitectura del sistema en funciÛn de las macros de compilador
-* definidas por los distintos compiladores y el entorno de compilaciÛn.
+* Comprobacion de la arquitectura del sistema y definicion de macros
+* especificas para cada tipo de arquitectura. Este bloque evalua la
+* arquitectura del sistema en funcion de las macros de compilador
+* definidas por los distintos compiladores y el entorno de compilacion.
 */
 #if defined(_M_X64) || defined(__x86_64__) || defined(__amd64__) 
 // Si el sistema es de arquitectura x86-64 (64 bits), define las macros para esa arquitectura.
 #define VX_ARCH_X86_64
 #define VX_ARCH_X64
 
-// ComprobaciÛn de las instrucciones AVX para definir la macro correspondiente.
+// Comprobacion de las instrucciones AVX para definir la macro correspondiente.
 #if defined(__AVX512F__)
 		#define VX_ARCH_X86_64_AVX512 // AVX-512
 
@@ -747,7 +747,7 @@
 #elif defined(_M_IX86) || defined(__i386__) 
 	#define VX_ARCH_X86
 
-	// ComprobaciÛn de las instrucciones SSE para definir la macro correspondiente.
+	// Comprobacion de las instrucciones SSE para definir la macro correspondiente.
 	#if defined(__SSE4_2__)
 		#define VX_ARCH_X86_SSE4_2 // SSE4.2
 
@@ -827,7 +827,7 @@
 #elif defined(_M_ARM64EC)
 	#define VX_ARCH_ARM64EC
 
-// Si se est· usando MIDL (Microsoft Interface Definition Language), define la macro correspondiente.
+// Si se est√° usando MIDL (Microsoft Interface Definition Language), define la macro correspondiente.
 #elif defined(__midl)
 	#define VX_ARCH_MIDL
 
@@ -855,8 +855,8 @@
 
 
 /*
-* Este bloque de cÛdigo verifica la plataforma en la que se est· compilando el programa
-* y define macros que identifican la plataforma especÌfica para su uso posterior.
+* Este bloque de codigo verifica la plataforma en la que se esta compilando el programa
+* y define macros que identifican la plataforma espec√≠fica para su uso posterior.
 * 
 */
 #if defined(VX_WINDOWS_32) || defined(VX_WINDOWS_64)
@@ -885,7 +885,7 @@
 #endif
 
 
-// ComprobaciÛn de que se ha definido un nombre de plataforma.
+// Comprobacion de que se ha definido un nombre de plataforma.
 #ifndef VX_PLATFORM_NAME
 	// Si el nombre de la plataforma no ha sido definido, se genera un error.
 	#error "Nombre de plataforma sin definir"
@@ -910,14 +910,14 @@
 
 
 /*
-* Este bloque de cÛdigo se encarga de habilitar y configurar diferentes modos
-* (experimental, debug y release) mediante macros, permitiendo asÌ configurar
-* el comportamiento del programa durante la compilaciÛn.
+* Este bloque de c√≥digo se encarga de habilitar y configurar diferentes modos
+* (experimental, debug y release) mediante macros, permitiendo as√≠ configurar
+* el comportamiento del programa durante la compilaci√≥n.
 */
 
 /* Modo experimental */
 
-// Si la macro __VX_EXPERIMENTAL_MODE_ENABLE__ est· definida (modo experimental habilitado por el desarrollador o sistema), 
+// Si la macro __VX_EXPERIMENTAL_MODE_ENABLE__ est√° definida (modo experimental habilitado por el desarrollador o sistema), 
 // se define la macro VX_USE_EXPERIMENTAL a 1, de lo contrario se define a 0.
 #if defined(__VX_EXPERIMENTAL_MODE_ENABLE__)  
 	#define VX_USE_EXPERIMENTAL 1 // Habilita el modo experimental
@@ -928,33 +928,33 @@
 
 /* Modo debug */
 
-// Si la macro __VX_DEBUG_MODE_ENABLED__ no est· definida, se verifica si _DEBUG est· definido
-// (lo cual es com˙n en compilaciones de debug).
+// Si la macro __VX_DEBUG_MODE_ENABLED__ no est√° definida, se verifica si _DEBUG est√° definido
+// (lo cual es com√∫n en compilaciones de debug).
 #ifndef __VX_DEBUG_MODE_ENABLED__
 	#ifdef _DEBUG
-		// Si _DEBUG est· definido, habilita el modo debug estableciendo __VX_DEBUG_MODE_ENABLED__ a 1.
+		// Si _DEBUG est√° definido, habilita el modo debug estableciendo __VX_DEBUG_MODE_ENABLED__ a 1.
 		#define __VX_DEBUG_MODE_ENABLED__ 1 // Habilitado
 	#else
-		// Si _DEBUG no est· definido, desactiva el modo debug estableciendo __VX_DEBUG_MODE_ENABLED__ a 0.
+		// Si _DEBUG no est√° definido, desactiva el modo debug estableciendo __VX_DEBUG_MODE_ENABLED__ a 0.
 		#define __VX_DEBUG_MODE_ENABLED__ 0 // Deshabilitado
 	#endif
 #endif
 
-// Si el modo debug est· habilitado (es decir, __VX_DEBUG_MODE_ENABLED__ es 1),
-// se define la macro VX_USE_DEBUG a 1, y se configura la macro VX_DEBUGBREAK para provocar una interrupciÛn en el depurador.
+// Si el modo debug esta habilitado (es decir, __VX_DEBUG_MODE_ENABLED__ es 1),
+// se define la macro VX_USE_DEBUG a 1, y se configura la macro VX_DEBUGBREAK para provocar una interrupcion en el depurador.
 #if __VX_DEBUG_MODE_ENABLED__ 
 
 	#define VX_USE_DEBUG 1 // Habilita el modo debug
 	#if defined(VX_COMP_MSVC)
-		// Si se usa el compilador MSVC, se define VX_DEBUGBREAK usando __debugbreak(), lo cual detiene la ejecuciÛn del programa.
+		// Si se usa el compilador MSVC, se define VX_DEBUGBREAK usando __debugbreak(), lo cual detiene la ejecuci√≥n del programa.
 		#define VX_DEBUGBREAK __debugbreak()
 	#elif defined(VX_COMP_GCC) || defined(VX_COMP_CLANG)
-		// Si se usa GCC o Clang, se incluye <signal.h> y se define VX_DEBUGBREAK usando __pxcptinfoptrs(), que tambiÈn detiene la ejecuciÛn.
+		// Si se usa GCC o Clang, se incluye <signal.h> y se define VX_DEBUGBREAK usando __pxcptinfoptrs(), que tambi√©n detiene la ejecuci√≥n.
 		#include <signal.h>
 		#define VX_DEBUGBREAK __pxcptinfoptrs()
 	#endif
 #else
-	// Si el modo debug est· deshabilitado, VX_DEBUGBREAK no hace nada y VX_USE_DEBUG se establece en 0.
+	// Si el modo debug est√° deshabilitado, VX_DEBUGBREAK no hace nada y VX_USE_DEBUG se establece en 0.
 	#define VX_DEBUGBREAK
 	#define VX_USE_DEBUG 0 // Deshabilita el modo debug
 #endif
@@ -962,19 +962,19 @@
 
 /* Modo Release */
 
-// Si la macro __VX_RELEASE_MODE_ENABLE__ no est· definida, se verifica si _DEBUG est· definido.
-// Si no est· definido, se habilita el modo release, de lo contrario se desactiva.
+// Si la macro __VX_RELEASE_MODE_ENABLE__ no esta definida, se verifica si _DEBUG est√° definido.
+// Si no esta definido, se habilita el modo release, de lo contrario se desactiva.
 #ifndef __VX_RELEASE_MODE_ENABLED__
 	#ifndef _DEBUG
-		// Si _DEBUG no est· definido, habilita el modo release estableciendo __VX_RELEASE_MODE_ENABLE__ a 1.
+		// Si _DEBUG no esta definido, habilita el modo release estableciendo __VX_RELEASE_MODE_ENABLE__ a 1.
 		#define __VX_RELEASE_MODE_ENABLE__ 1      // Modo release habilitado
 	#else
-		// Si _DEBUG est· definido, desactiva el modo release.
+		// Si _DEBUG esta definido, desactiva el modo release.
 		#define __VX_RELEASE_MODE_ENABLE__ 0      // Modo release deshabilitado
 	#endif
 #endif
 
-// Si el modo release est· habilitado (es decir, __VX_RELEASE_MODE_ENABLE__ es 1), 
+// Si el modo release est√° habilitado (es decir, __VX_RELEASE_MODE_ENABLE__ es 1), 
 // se define la macro VX_USE_RELEASE a 1. De lo contrario, se define a 0.
 #if __VX_RELEASE_MODE_ENABLE__
 	#define VX_USE_RELEASE 1 // Habilita el modo release
@@ -985,18 +985,18 @@
 
 
 /*
-* Modos para la habilitaciÛn de DLLs.
-* Esta secciÛn gestiona la configuraciÛn para la importaciÛn y exportaciÛn de DLLs
-* en plataformas especÌficas, principalmente en Windows con el compilador MSVC.
+* Modos para la habilitaci√≥n de DLLs.
+* Esta secci√≥n gestiona la configuracion para la importaci√≥n y exportaci√≥n de DLLs
+* en plataformas espec√≠ficas, principalmente en Windows con el compilador MSVC.
 */
-// Si la macro __VX_IMPORT_AND_EXPORT_DLL_ENABLED__ no est· definida,
-// se comprueba si la plataforma es Windows y si se est· usando el compilador MSVC.
+// Si la macro __VX_IMPORT_AND_EXPORT_DLL_ENABLED__ no est√° definida,
+// se comprueba si la plataforma es Windows y si se esta usando el compilador MSVC.
 #ifndef __VX_IMPORT_AND_EXPORT_DLL_ENABLED__
 	#if defined(VX_PLATFORM_WINDOWS) && defined(VX_COMP_MSVC)
-		// Si se cumplen ambas condiciones, habilita la importaciÛn y exportaciÛn de DLLs.
+		// Si se cumplen ambas condiciones, habilita la importaci√≥n y exportacion de DLLs.
 		#define __VX_IMPORT_AND_EXPORT_DLL_ENABLED__ 1 // Habilitado
 	#else
-		// Si no se cumplen las condiciones, deshabilita la importaciÛn y exportaciÛn de DLLs.
+		// Si no se cumplen las condiciones, deshabilita la importaci√≥n y exportacion de DLLs.
 		#define __VX_IMPORT_AND_EXPORT_DLL_ENABLED__ 0 // Deshabilitado
 	#endif
 #endif
@@ -1004,34 +1004,34 @@
 
 /*
 * Modos para importar y exportar DLLs.
-* Dependiendo de si se est· construyendo una DLL o usando una,
-* se configuran las macros para la importaciÛn o exportaciÛn de sÌmbolos.
+* Dependiendo de si se est√° construyendo una DLL o usando una,
+* se configuran las macros para la importaci√≥n o exportaci√≥n de s√≠mbolos.
 */
-// Si la macro VX_API no est· definida (es decir, es la primera vez que se configura),
+// Si la macro VX_API no est√° definida (es decir, es la primera vez que se configura),
 #ifndef VX_API
 
-	// Se verifica si la importaciÛn y exportaciÛn de DLLs est· habilitada (seg˙n __VX_IMPORT_AND_EXPORT_DLL_ENABLED__).
+	// Se verifica si la importaci√≥n y exportaci√≥n de DLLs est√° habilitada (segun __VX_IMPORT_AND_EXPORT_DLL_ENABLED__).
 	#if __VX_IMPORT_AND_EXPORT_DLL_ENABLED__ 
 
-		// Si se est· construyendo la DLL (comprobando la macro VX_BUILD_DLL),
-		// se define VX_API como __declspec(dllexport) para exportar sÌmbolos de la DLL.
+		// Si se esta construyendo la DLL (comprobando la macro VX_BUILD_DLL),
+		// se define VX_API como __declspec(dllexport) para exportar s√≠mbolos de la DLL.
 		#if defined (VX_BUILD_DLL) 
-			#define VX_API __declspec(dllexport) // Exportar sÌmbolos al compilar la DLL
+			#define VX_API __declspec(dllexport) // Exportar s√≠mbolos al compilar la DLL
 		#else
 
-			// Si no se est· construyendo la DLL (es decir, se est· usando la DLL),
-			// se define VX_API como __declspec(dllimport) para importar sÌmbolos desde la DLL.
-			#define VX_API __declspec(dllimport) // Importar sÌmbolos al usar la DLL
+			// Si no se esta construyendo la DLL (es decir, se est√° usando la DLL),
+			// se define VX_API como __declspec(dllimport) para importar s√≠mbolos desde la DLL.
+			#define VX_API __declspec(dllimport) // Importar s√≠mbolos al usar la DLL
 		#endif
 	#else
 
-		// Si la importaciÛn y exportaciÛn de DLLs no est· habilitada, se deja la macro VX_API vacÌa.
-		#define VX_API // Para otras plataformas, dejar vacÌo
+		// Si la importaci√≥n y exportacion de DLLs no est√° habilitada, se deja la macro VX_API vac√≠a.
+		#define VX_API // Para otras plataformas, dejar vac√≠o
 	#endif
 #else
 
-	// Si VX_API ya est· definido (posiblemente por otro cÛdigo o configuraciÛn externa),
-	// simplemente se mantiene la definiciÛn sin cambios.
+	// Si VX_API ya est√° definido (posiblemente por otro codigo o configuraci√≥n externa),
+	// simplemente se mantiene la definici√≥n sin cambios.
 	#define VX_API
 #endif
 
@@ -1039,10 +1039,10 @@
 
 /*
 * Modo para punteros de 64 bits.
-* Esta secciÛn verifica si la plataforma es de 64 bits y, en base a ello, decide si se deben
+* Esta secci√≥n verifica si la plataforma es de 64 bits y, en base a ello, decide si se deben
 * usar punteros de 64 bits.
 */
-// Si la macro VX_USE_64_BIT_PTR_DEFINES no est· definida,
+// Si la macro VX_USE_64_BIT_PTR_DEFINES no est√° definida,
 #ifndef VX_USE_64_BIT_PTR_DEFINES
 
 	// Se verifica si la plataforma es de 64 bits mediante diversas macros
@@ -1065,20 +1065,20 @@
 
 
 /*
-* TamaÒo de punteros de 8 y 4 bits dependiendo de la arquitectura de CPU.
-* Se configura el tamaÒo de los punteros (en bytes) seg˙n si la plataforma es de 64 bits o no.
+* Tama√±o de punteros de 8 y 4 bits dependiendo de la arquitectura de CPU.
+* Se configura el tama√±o de los punteros (en bytes) seg√∫n si la plataforma es de 64 bits o no.
 * 
 */
-// Si la macro VX_PTR_SIZE no est· definida,
+// Si la macro VX_PTR_SIZE no est√° definida,
 #ifndef VX_PTR_SIZE
 
 	// Si se han habilitado los punteros de 64 bits,
 	#if VX_USE_64_BIT_PTR_DEFINES
 
-		// Se define el tamaÒo de punteros como 8 bytes (64 bits) para plataformas de 64 bits.
+		// Se define el tama√±o de punteros como 8 bytes (64 bits) para plataformas de 64 bits.
 		#define VX_PTR_SIZE 8
 	#else
-		// De lo contrario, se define el tamaÒo de punteros como 4 bytes (32 bits) 
+		// De lo contrario, se define el tama√±o de punteros como 4 bytes (32 bits) 
 		// para plataformas de 32 bits.
 		#define VX_PTR_SIZE 4
 	#endif
@@ -1087,10 +1087,10 @@
 
 /*
 * Modo para codigo de 64 bits.
-* Configura la compilaciÛn para usar codigo optimizado para 64 bits,
+* Configura la compilaci√≥n para usar codigo optimizado para 64 bits,
 * dependiendo de la arquitectura de la CPU.
 */
-// Si la macro VX_USE_64_BIT_FOR_DEFINES no est· definida,
+// Si la macro VX_USE_64_BIT_FOR_DEFINES no est√° definida,
 #ifndef VX_USE_64_BIT_FOR_DEFINES
 
 	// Se verifica si la plataforma es de 64 bits mediante las mismas condiciones 
@@ -1101,11 +1101,11 @@
 		        defined(__aarch64__) || defined(VX_ARCH_PPC64) || \
 		        (defined(__riscv) && VX_ARCH_RISCV64)
 	
-		// Si alguna de estas condiciones se cumple, habilita la configuraciÛn para cÛdigo de 64 bits.
+		// Si alguna de estas condiciones se cumple, habilita la configuraci√≥n para c√≥digo de 64 bits.
 		#define VX_USE_64_BIT_FOR_DEFINES (1)
 	#else
 
-		// Si la plataforma no es de 64 bits, deshabilita la configuraciÛn para cÛdigo de 64 bits.
+		// Si la plataforma no es de 64 bits, deshabilita la configuraci√≥n para c√≥digo de 64 bits.
 		#define VX_USE_64_BIT_FOR_DEFINES (0)
 	#endif
 #endif
@@ -1114,26 +1114,26 @@
 
 /*
 * Null para punteros de 64 y 32 bits.
-* Esta secciÛn define un valor nulo para punteros, adapt·ndose seg˙n la arquitectura
-* (64 bits o 32 bits) y la versiÛn de C++.
+* Esta secci√≥n define un valor nulo para punteros, adapt√°ndose seg√∫n la arquitectura
+* (64 bits o 32 bits) y la versi√≥n de C++.
 */
 
-// Si la macro VX_DEFINE_NON_DISPATCHABLE_HANDLE no est· definida,
+// Si la macro VX_DEFINE_NON_DISPATCHABLE_HANDLE no est√° definida,
 #ifndef VX_DEFINE_NON_DISPATCHABLE_HANDLE
 
-	// Si la macro _VX_NULL_ no est· definida (se reduce el tiempo de compilaciÛn si es necesario),
+	// Si la macro _VX_NULL_ no est√° definida (se reduce el tiempo de compilaci√≥n si es necesario),
 	#ifndef _VX_NULL_
 
 		// Si se usan punteros de 64 bits,
 		#if VX_USE_64_BIT_PTR_DEFINES
 
-			// Si estamos usando C++ y la versiÛn es C++17 o superior,
+			// Si estamos usando C++ y la versi√≥n es C++17 o superior,
 			#if defined(VX_CPLUSPLUS) && (VX_CXX_VERSION >= _VX_CPP17)
 
 				// Se define _VX_NULL_ como nullptr, que es el valor nulo en C++17.
 				#define _VX_NULL_ (nullptr)
 			#else
-					// Si no se est· usando C++17 o una versiÛn superior, se define _VX_NULL_ 
+					// Si no se est√° usando C++17 o una versi√≥n superior, se define _VX_NULL_ 
 					// como un puntero nulo en C, es decir, (void*)0.
 				#define _VX_NULL_ ((void*)0)
 			#endif
@@ -1143,13 +1143,13 @@
 			#define _VX_NULL_ (0ULL)
 		#endif
 	#else
-		// Si _VX_NULL_ ya est· definido, simplemente lo mantiene tal como est·.
+		// Si _VX_NULL_ ya est√° definido, simplemente lo mantiene tal como est√°.
 		#define _VX_NULL_
 	#endif
 #endif
 
 /*
-* Si no se ha definido _VX_NULL_ en ning˙n momento,
+* Si no se ha definido _VX_NULL_ en ning√∫n momento,
 * se define como 0.
 * 
 */
@@ -1163,13 +1163,13 @@
 
 
 /*
-* DefiniciÛn de handles y objetos.
-* Este bloque define un tipo de handle o objeto seg˙n la arquitectura (64 bits o 32 bits)
-* utilizando macros para facilitar el uso de punteros o enteros seg˙n la plataforma.
+* Definici√≥n de handles y objetos.
+* Este bloque define un tipo de handle o objeto seg√∫n la arquitectura (64 bits o 32 bits)
+* utilizando macros para facilitar el uso de punteros o enteros seg√∫n la plataforma.
 */
-// Si la macro VX_DEFINE_NON_DISPATCHABLE_HANDLE no est· definida,
+// Si la macro VX_DEFINE_NON_DISPATCHABLE_HANDLE no est√° definida,
 #ifndef VX_DEFINE_NON_DISPATCHABLE_HANDLE
-	// Si estamos trabajando en una m·quina de 64 bits (seg˙n la macro VX_USE_64_BIT_PTR_DEFINES),
+	// Si estamos trabajando en una m√°quina de 64 bits (seg√∫n la macro VX_USE_64_BIT_PTR_DEFINES),
 	#if VX_USE_64_BIT_PTR_DEFINES
 
 		// Se define un handle para el objeto como un puntero a una estructura.
@@ -1177,7 +1177,7 @@
 		#define VX_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef struct object##_t *object;
 	#else
 
-		// Si no estamos trabajando en una m·quina de 64 bits (por ejemplo, plataformas de 32 bits),
+		// Si no estamos trabajando en una m√°quina de 64 bits (por ejemplo, plataformas de 32 bits),
 		// se define el objeto como un tipo entero (int).
 		#define VX_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef int object;
 	#endif
@@ -1186,16 +1186,16 @@
 
 
 /*
-* Modo para cÛdigo obsoleto.
-* Esta secciÛn se activa si la macro __VX_USE_DEPRECATED_MODE_ENABLED__ est· definida,
-* habilitando el uso de funciones o caracterÌsticas obsoletas.
+* Modo para codigo obsoleto.
+* Esta secci√≥n se activa si la macro __VX_USE_DEPRECATED_MODE_ENABLED__ est√° definida,
+* habilitando el uso de funciones o caracter√≠sticas obsoletas.
 */
-// Si la macro __VX_USE_DEPRECATED_MODE_ENABLED__ est· definida (indicando que el cÛdigo obsoleto est· habilitado),
+// Si la macro __VX_USE_DEPRECATED_MODE_ENABLED__ est√° definida (indicando que el c√≥digo obsoleto est√° habilitado),
 #if defined(__VX_USE_DEPRECATED_MODE_ENABLED__)
-	// Define VX_USE_DEPRECATED como 1, habilitando el uso de cÛdigo obsoleto.
+	// Define VX_USE_DEPRECATED como 1, habilitando el uso de c√≥digo obsoleto.
 	#define VX_USE_DEPRECATED 1
 #else
-	// Si el cÛdigo obsoleto no est· habilitado, define VX_USE_DEPRECATED como 0.
+	// Si el c√≥digo obsoleto no est√° habilitado, define VX_USE_DEPRECATED como 0.
 	#define VX_USE_DEPRECATED 0
 #endif
 
@@ -1204,27 +1204,27 @@
 
 // Permite crear variaciones de objetos usando class o struct
 /*
-*	La intenciÛn de esta secciÛn es permitir la creaciÛn de variaciones de objetos usando `class` o `struct`,
-*	seg˙n lo que estÈ habilitado en el proyecto. Dependiendo de quÈ macros estÈn definidas, se configura
-*	una u otra opciÛn (class o struct) para ser utilizada en el cÛdigo.
+*	La intencion de esta secci√≥n es permitir la creacion de variaciones de objetos usando `class` o `struct`,
+*	seg√∫n lo que est√© habilitado en el proyecto. Dependiendo de qu√© macros est√©n definidas, se configura
+*	una u otra opci√≥n (class o struct) para ser utilizada en el codigo.
 *
-*	La lÛgica funciona de la siguiente manera:
-*	1. Si __VX_USE_CLASS_FOR_XOBJECT__ est· definida y __VX_USE_STRUCT_FOR_XOBJECT__ no lo est·,
+*	La logica funciona de la siguiente manera:
+*	1. Si __VX_USE_CLASS_FOR_XOBJECT__ est√° definida y __VX_USE_STRUCT_FOR_XOBJECT__ no lo esta,
 *	   se define `VX_USE_CLASS_FOR_XOBJECT` con valor 1 (permitiendo el uso de `class` para los objetos)
 *	   y `VX_USE_STRUCT_FOR_XOBJECT` se asigna 0 (deshabilitando el uso de `struct`).
 *
 *	2. Si no se cumple lo anterior, se define `VX_USE_STRUCT_FOR_XOBJECT` como 1 (permitiendo el uso de `struct`),
 *	   y `VX_USE_CLASS_FOR_XOBJECT` se asigna 0 (deshabilitando el uso de `class`).
 *
-*	3. Si ni __VX_USE_CLASS_FOR_XOBJECT__ ni __VX_USE_STRUCT_FOR_XOBJECT__ est·n definidas, ambas macros
+*	3. Si ni __VX_USE_CLASS_FOR_XOBJECT__ ni __VX_USE_STRUCT_FOR_XOBJECT__ estan definidas, ambas macros
 *	   `VX_USE_CLASS_FOR_XOBJECT` y `VX_USE_STRUCT_FOR_XOBJECT` se eliminan y se definen con el valor 0,
-*	   deshabilitando asÌ ambos modos.
+*	   deshabilitando as√≠ ambos modos.
 *
-*	4. Si ambas macros (__VX_USE_CLASS_FOR_XOBJECT__ y __VX_USE_STRUCT_FOR_XOBJECT__) est·n definidas
-*	   al mismo tiempo, tambiÈn se eliminan y se les asigna 0, asegurando que solo una de las dos opciones
+*	4. Si ambas macros (__VX_USE_CLASS_FOR_XOBJECT__ y __VX_USE_STRUCT_FOR_XOBJECT__) est√°n definidas
+*	   al mismo tiempo, tambi√©n se eliminan y se les asigna 0, asegurando que solo una de las dos opciones
 *	   (class o struct) se pueda habilitar a la vez.
 */
-// VerificaciÛn de si la macro __VX_USE_CLASS_FOR_XOBJECT__ est· definida, y __VX_USE_STRUCT_FOR_XOBJECT__ no
+// Verificaci√≥n de si la macro __VX_USE_CLASS_FOR_XOBJECT__ esta definida, y __VX_USE_STRUCT_FOR_XOBJECT__ no
 #if defined(__VX_USE_CLASS_FOR_XOBJECT__) && !defined(__VX_USE_STRUCT_FOR_XOBJECT__)
 
 	// Si se define __VX_USE_CLASS_FOR_XOBJECT__ y no __VX_USE_STRUCT_FOR_XOBJECT__,
@@ -1236,10 +1236,10 @@
 	#define VX_USE_CLASS_FOR_XOBJECT (0)
 	#define VX_USE_STRUCT_FOR_XOBJECT (1)
 
-	// Si ambas macros (__VX_USE_CLASS_FOR_XOBJECT__ y __VX_USE_STRUCT_FOR_XOBJECT__) no est·n definidas,
+	// Si ambas macros (__VX_USE_CLASS_FOR_XOBJECT__ y __VX_USE_STRUCT_FOR_XOBJECT__) no estan definidas,
 	// se desactivan ambas macros VX_USE_CLASS_FOR_XOBJECT y VX_USE_STRUCT_FOR_XOBJECT.
 	#if !defined(__VX_USE_CLASS_FOR_XOBJECT__) && !defined(__VX_USE_STRUCT_FOR_XOBJECT__)	
-		// Elimina las macros si no est·n definidas y las asigna a 0
+		// Elimina las macros si no est√°n definidas y las asigna a 0
 		#undef VX_USE_STRUCT_FOR_XOBJECT 
 		#undef VX_USE_CLASS_FOR_XOBJECT 
 	
@@ -1247,7 +1247,7 @@
 		#define VX_USE_STRUCT_FOR_XOBJECT (0)
 		#define VX_USE_CLASS_FOR_XOBJECT (0)
 	#else	
-		// Elimina las macros si est·n definidas y las asigna a 0
+		// Elimina las macros si estan definidas y las asigna a 0
 		#undef VX_USE_STRUCT_FOR_XOBJECT 
 		#undef VX_USE_CLASS_FOR_XOBJECT 
 	
@@ -1266,10 +1266,10 @@
 // Verifica si VX_USE_STRUCT_FOR_XOBJECT es 1 (verdadero) para usar struct en lugar de class
 #if VX_USE_STRUCT_FOR_XOBJECT // Si VX_USE_STRUCT_FOR_XOBJECT es 1 o true se da:
 
-	// Si se est· utilizando C++, se define el handle como un puntero a un struct
+	// Si se esta utilizando C++, se define el handle como un puntero a un struct
 	#if defined(VX_CPLUSPLUS)
 
-		// Uso ˙nico de struct en C++ ya que no es necesario el typedef
+		// Uso unico de struct en C++ ya que no es necesario el typedef
 		// Definimos el handle como un puntero al struct object_t
 		#define VX_DEFINE_HANDLE(object) struct object##_t* object; 
 	#else // Si no es C++, es C
@@ -1282,8 +1282,8 @@
 // Verifica si VX_USE_CLASS_FOR_XOBJECT es 1 (verdadero) para usar class en lugar de struct
 #if VX_USE_CLASS_FOR_XOBJECT // Si VX_USE_CLASS_FOR_XOBJECT es 1 o true se da:
 
-	// Si se est· utilizando C++, se define el handle como un puntero a un class
-	#if defined(VX_CPLUSPLUS) // Si est· definido VX_CPLUSPLUS se define:
+	// Si se esta utilizando C++, se define el handle como un puntero a un class
+	#if defined(VX_CPLUSPLUS) // Si est√° definido VX_CPLUSPLUS se define:
 
 		// Uso de class en C++ ya que es un lenguaje orientado a objetos
 		// Definimos el handle como un puntero al class object_t
@@ -1309,21 +1309,21 @@
 	// En C, usamos 'typedef' para definir alias de tipos
 	#define VX_DEFINE_ALIAS(name, type) typedef type name;
 
-	// No se necesita definir un alias con 'decltype' en C, asÌ que lo dejamos vacÌo
+	// No se necesita definir un alias con 'decltype' en C, as√≠ que lo dejamos vac√≠o
 	#define VX_DEFINE_ALIAS_WITH_DECLTYPE(name, type)
 #endif
 
 // Modo para constexpr
 
-// Si estamos en C++, habilitamos la opciÛn para usar 'constexpr'
+// Si estamos en C++, habilitamos la opcion para usar 'constexpr'
 #if defined(VX_CPLUSPLUS) // Si esta definido C++ 
 
-	// Verificamos si la macro '__VX_USE_CONSTEXPR__' est· definida para activar 'constexpr'
-	#if defined(__VX_USE_CONSTEXPR__) // Si est· definido '__VX_USE_CONSTEXPR__'
+	// Verificamos si la macro '__VX_USE_CONSTEXPR__' est√° definida para activar 'constexpr'
+	#if defined(__VX_USE_CONSTEXPR__) // Si est√° definido '__VX_USE_CONSTEXPR__'
 
 		#define VX_USE_CONSTEXPR (1) // Habilitamos 'constexpr'
 	#else
-		#define VX_USE_CONSTEXPR (0) // Si no est· habilitado, lo deshabilitamos
+		#define VX_USE_CONSTEXPR (0) // Si no est√° habilitado, lo deshabilitamos
 	#endif
 #else
 
@@ -1333,20 +1333,20 @@
 
 // Modo para 'static' - control de uso de la palabra clave 'static'
 
-// Verificamos si '__VX_USE_STATIC__' est· definido para habilitar 'static'
+// Verificamos si '__VX_USE_STATIC__' est√° definido para habilitar 'static'
 #if defined(__VX_USE_STATIC__) // Si esta definido '__VX_USE_STATIC__'
 	#define VX_USE_STATIC (1) // Habilitamos 'static'
 #else
-	#define VX_USE_STATIC (0) // Si no est· habilitado, lo deshabilitamos
+	#define VX_USE_STATIC (0) // Si no est√° habilitado, lo deshabilitamos
 #endif
 
 // Modo para 'inline' - control de uso de la palabra clave 'inline'
 
-// Si '__VX_USE_INLINE__' est· definido, habilitamos la opciÛn de 'inline'
+// Si '__VX_USE_INLINE__' est√° definido, habilitamos la opci√≥n de 'inline'
 #if defined(__VX_USE_INLINE__) 
 	#define VX_USE_INLINE (1) // Habilitamos 'inline'
 #else
-	#define VX_USE_INLINE (0) // Si no est· habilitado, lo deshabilitamos
+	#define VX_USE_INLINE (0) // Si no est√° habilitado, lo deshabilitamos
 #endif
 
 
@@ -1364,58 +1364,58 @@
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 
-// DefiniciÛn de macros para obtener el n˙mero de lÌnea
-#ifndef _VX_LINE_ // Para reducir los tiempos de compilaciÛn si lo deseamos
-	#define _VX_LINE_ __LINE__  // __LINE__ es una macro incorporada que obtiene el n˙mero de lÌnea actual en el cÛdigo fuente
+// Definicion de macros para obtener el numero de l√≠nea
+#ifndef _VX_LINE_ // Para reducir los tiempos de compilaci√≥n si lo deseamos
+	#define _VX_LINE_ __LINE__  // __LINE__ es una macro incorporada que obtiene el n√∫mero de l√≠nea actual en el c√≥digo fuente
 #else
-	#define _VX_LINE_  // Si ya est· definido, no se hace nada
+	#define _VX_LINE_  // Si ya est√° definido, no se hace nada
 #endif
 #define VX_LINE _VX_LINE_  // VX_LINE es un alias de _VX_LINE_
 
 
-// DefiniciÛn de macros para obtener el nombre del archivo
-#ifndef _VX_FILE_ // Para reducir los tiempos de compilaciÛn si lo deseamos
+// Definicion de macros para obtener el nombre del archivo
+#ifndef _VX_FILE_ // Para reducir los tiempos de compilaci√≥n si lo deseamos
 	#define _VX_FILE_ __FILE__  // __FILE__ es una macro incorporada que obtiene el nombre del archivo fuente actual
 #else
-	#define _VX_FILE_  // Si ya est· definido, no se hace nada
+	#define _VX_FILE_  // Si ya est√° definido, no se hace nada
 #endif
 #define VX_FILE _VX_FILE_  // VX_FILE es un alias de _VX_FILE_
 
 
-// DefiniciÛn de macros para convertir a cadena de texto
-#ifndef _VX_STRINGIZE_  // Para reducir los tiempos de compilaciÛn si lo deseamos
+// Definicion de macros para convertir a cadena de texto
+#ifndef _VX_STRINGIZE_  // Para reducir los tiempos de compilacion si lo deseamos
 	#define _VX_STRINGIZE_(x) #x  // #x convierte el argumento 'x' a una cadena de texto
 #else
-	#define _VX_STRINGIZE_(x)  // Si ya est· definido, no se hace nada
+	#define _VX_STRINGIZE_(x)  // Si ya est√° definido, no se hace nada
 #endif
 #define VX_STRINGIZE(x) _VX_STRINGIZE_(x)  // VX_STRINGIZE convierte el argumento 'x' a una cadena de texto
 
 
-// DefiniciÛn de macros para convertir a cadena ancha (wide string)
-#ifndef  _VX_WIDE_ // Para reducir los tiempos de compilaciÛn si lo deseamos
+// Definici√≥n de macros para convertir a cadena ancha (wide string)
+#ifndef  _VX_WIDE_ // Para reducir los tiempos de compilaci√≥n si lo deseamos
 	#define _VX_WIDE_(x) L##x  // 'L' convierte el argumento 'x' a una cadena ancha (wide string) en C++
 #else 
-	#define _VX_WIDE_(x)  // Si ya est· definido, no se hace nada
+	#define _VX_WIDE_(x)  // Si ya est√° definido, no se hace nada
 #endif 
 #define VX_WIDE(x) _VX_WIDE_(x)  // VX_WIDE convierte 'x' a una cadena ancha (wide string)
 
 
-// DefiniciÛn de macros para concatenar dos valores
-#ifndef _VX_CONCATENATE_  // Para reducir los tiempos de compilaciÛn si lo deseamos
+// Definicion de macros para concatenar dos valores
+#ifndef _VX_CONCATENATE_  // Para reducir los tiempos de compilacion si lo deseamos
 	#define _VX_CONCATENATE_(a, b) a ## b  // '##' concatena los dos argumentos 'a' y 'b'
 #else
-	#define _VX_CONCATENATE_(a, b)  // Si ya est· definido, no se hace nada
+	#define _VX_CONCATENATE_(a, b)  // Si ya est√° definido, no se hace nada
 #endif
 #define VX_CONCATENATE(a, b) _VX_CONCATENATE_(a, b)  // VX_CONCATENATE concatena los dos argumentos 'a' y 'b'
 
 
-// DefiniciÛn de macros para deshacer el parÈntesis en listas de argumentos
+// Definicion de macros para deshacer el par√©ntesis en listas de argumentos
 #ifndef _VX_UNPARENTHESIZE_
-	#define _VX_UNPARENTHESIZE_(...) __VA_ARGS__  // __VA_ARGS__ toma los argumentos sin los parÈntesis
+	#define _VX_UNPARENTHESIZE_(...) __VA_ARGS__  // __VA_ARGS__ toma los argumentos sin los par√©ntesis
 #else
-	#define _VX_UNPARENTHESIZE_(...)  // Si ya est· definido, no se hace nada
+	#define _VX_UNPARENTHESIZE_(...)  // Si ya est√° definido, no se hace nada
 #endif
-#define VX_UNPARENTHESIZE(...)  _VX_UNPARENTHESIZE_ __VA_ARGS__  // VX_UNPARENTHESIZE elimina los parÈntesis en las listas de argumentos
+#define VX_UNPARENTHESIZE(...)  _VX_UNPARENTHESIZE_ __VA_ARGS__  // VX_UNPARENTHESIZE elimina los par√©ntesis en las listas de argumentos
 
 
 
@@ -1514,7 +1514,7 @@
 		 * como un puntero a tipo char para representarla de manera uniforme.
 		 *
 		 * El const_cast se usa para quitar cualquier tipo de constancia en el puntero,
-		 * lo que permite la manipulaciÛn de la direccion sin restricciones.
+		 * lo que permite la manipulaci√≥n de la direccion sin restricciones.
 		 */
 		#define _VX_ADDRESSOF_(x) (const_cast<char*>(reinterpret_cast<const volatile char*>(&x)))
 	#else
@@ -1559,7 +1559,7 @@
 	 * _VX_BOOL_:
 	 * En C++, el tipo 'bool' es nativo y forma parte del lenguaje desde C++98.
 	 * Al definir 'VX_BOOL' como 'bool', garantizamos que los programas C++ usen este tipo para booleanos,
-	 * lo cual es m·s intuitivo y se ajusta a los est·ndares del lenguaje.
+	 * lo cual es m√°s intuitivo y se ajusta a los est√°ndares del lenguaje.
 	 */
 	#if defined(VX_CPLUSPLUS)
 		#define VX_BOOL bool
@@ -1592,7 +1592,7 @@
 	/**
 	 * VX_BEGIN:
 	 * Si el codigo esta siendo compilado en C++, definimos un espacio de nombres llamado 'vertex'.
-	 * Los espacios de nombres son una caracterÌstica de C++ que permite organizar el cÛdigo y evitar colisiones de nombres.
+	 * Los espacios de nombres son una caracter√≠stica de C++ que permite organizar el c√≥digo y evitar colisiones de nombres.
 	 */
 	#define VX_BEGIN namespace vertex {
 #else
@@ -1601,7 +1601,7 @@
 	/**
 	 * VX_BEGIN:
 	 * En C, no existen espacios de nombres, por lo que simplemente dejamos vacio este bloque.
-	 * De esta forma, el cÛdigo C y C++ pueden coexistir sin problemas, y el bloque no tiene efecto en C.
+	 * De esta forma, el c√≥digo C y C++ pueden coexistir sin problemas, y el bloque no tiene efecto en C.
 	 */
 	#define VX_BEGIN
 #endif
@@ -1612,15 +1612,15 @@
 
 	/**
 	 * VX_END:
-	 * Si el cÛdigo est· siendo compilado en C++, cerramos el espacio de nombres 'vertex'.
-	 * Esto permite que todo el cÛdigo relacionado estÈ dentro de ese espacio de nombres, evitando colisiones de nombres.
+	 * Si el c√≥digo est√° siendo compilado en C++, cerramos el espacio de nombres 'vertex'.
+	 * Esto permite que todo el c√≥digo relacionado est√© dentro de ese espacio de nombres, evitando colisiones de nombres.
 	 */
 	#define VX_END }
 #else
-	// Si no estamos en C++, no cerramos ning˙n espacio de nombres
+	// Si no estamos en C++, no cerramos ning√∫n espacio de nombres
 	/**
 	 * VX_END:
-	 * Al igual que con VX_BEGIN, en C no se usan espacios de nombres, por lo que este bloque queda vacÌo en cÛdigo C.
+	 * Al igual que con VX_BEGIN, en C no se usan espacios de nombres, por lo que este bloque queda vac√≠o en c√≥digo C.
 	 */
 	#define VX_END
 #endif
@@ -1631,30 +1631,30 @@
 // Define para valores invalidos
 /**
  * VX_INVALID:
- * Define el valor -1 como un valor est·ndar para representar una condiciÛn de "invalidaciÛn".
- * Este valor puede ser utilizado para indicar que una operaciÛn o resultado es inv·lido o no tiene sentido,
- * por ejemplo, al devolver Ìndices o punteros no v·lidos.
- * Se usa com˙nmente en estructuras y funciones para verificar si los datos son v·lidos o no.
+ * Define el valor -1 como un valor est√°ndar para representar una condici√≥n de "invalidaci√≥n".
+ * Este valor puede ser utilizado para indicar que una operaci√≥n o resultado es inv√°lido o no tiene sentido,
+ * por ejemplo, al devolver √≠ndices o punteros no v√°lidos.
+ * Se usa com√∫nmente en estructuras y funciones para verificar si los datos son v√°lidos o no.
  */
 #define VX_INVALID (-1)
 
 
  
 // Solo define 0 para enteros (no tiene el mismo uso que VX_NULL)
-#ifndef _VX_NONE_  // Si no est· definida la macro _VX_NONE_
+#ifndef _VX_NONE_  // Si no est√° definida la macro _VX_NONE_
 
 	/**
 	 * _VX_NONE_:
-	 * Se define 0 como un valor para representar "ninguno" o "vacÌo" para enteros.
-	 * Este valor se utiliza como un valor est·ndar para representar la ausencia de algo,
+	 * Se define 0 como un valor para representar "ninguno" o "vac√≠o" para enteros.
+	 * Este valor se utiliza como un valor est√°ndar para representar la ausencia de algo,
 	 * pero no debe confundirse con un puntero nulo (VX_NULL) ya que su uso es solo para enteros.
 	 */
 	#define _VX_NONE_ 0
 #else 
 
-	// Si ya est· definida la macro _VX_NONE_, no se vuelve a definir
+	// Si ya est√° definida la macro _VX_NONE_, no se vuelve a definir
 	/**
-	 * Si _VX_NONE_ ya est· definida, no se vuelve a definir para evitar redefinir la macro.
+	 * Si _VX_NONE_ ya est√° definida, no se vuelve a definir para evitar redefinir la macro.
 	 */
 	#define _VX_NONE_ 
 #endif 
@@ -1662,21 +1662,21 @@
 
 
 
-// DefiniciÛn para el valor booleano verdadero (1)
+// Definici√≥n para el valor booleano verdadero (1)
 #ifndef _VX_TRUE_
 
 	/**
 	 * _VX_TRUE_:
 	 * Se define como el valor 1 para representar "verdadero" en condiciones booleanas.
-	 * Este valor se utiliza en expresiones condicionales y lÛgicas para indicar que una condiciÛn es verdadera.
+	 * Este valor se utiliza en expresiones condicionales y l√≥gicas para indicar que una condici√≥n es verdadera.
 	 * 
 	 */
 	#define _VX_TRUE_ (1)
 #else
 
 	/**
-	 * Si ya est· definida la macro _VX_TRUE_, no se vuelve a definir.
-	 * Esto previene la redefiniciÛn redundante y mejora los tiempos de compilaciÛn.
+	 * Si ya esta definida la macro _VX_TRUE_, no se vuelve a definir.
+	 * Esto previene la redefinici√≥n redundante y mejora los tiempos de compilacion.
 	 */
 	#define _VX_TRUE_
 #endif
@@ -1685,19 +1685,19 @@
 
 
 
-// DefiniciÛn para el valor booleano falso (0)
+// Definicion para el valor booleano falso (0)
 #ifndef _VX_FALSE_
 	/**
 	 * _VX_FALSE_:
 	 * Se define como el valor 0 para representar "falso" en condiciones booleanas.
-	 * Este valor se utiliza en expresiones condicionales y lÛgicas para indicar que una condiciÛn es falsa.
+	 * Este valor se utiliza en expresiones condicionales y l√≥gicas para indicar que una condici√≥n es falsa.
 	 */
 	#define _VX_FALSE_ (0)
 #else
 
 	/**
-	 * Si ya est· definida la macro _VX_FALSE_, no se vuelve a definir.
-	 * Esto previene la redefiniciÛn redundante y mejora los tiempos de compilaciÛn.
+	 * Si ya esta definida la macro _VX_FALSE_, no se vuelve a definir.
+	 * Esto previene la redefinici√≥n redundante y mejora los tiempos de compilaci√≥n.
 	 */
 	#define _VX_FALSE_
 #endif
@@ -1708,7 +1708,7 @@
 // Definicion de valores minimos para enteros con signo
 /**
  * VX_INT8_MIN:
- * Define el valor mÌnimo para un tipo de 8 bits con signo.
+ * Define el valor m√≠nimo para un tipo de 8 bits con signo.
  * Este valor es -128, ya que el rango de los enteros con signo de 8 bits es de -128 a 127.
  */
 #define VX_INT8_MIN         (-127 - 1) // Valor minimo para un tipo de 8 bits
@@ -1716,7 +1716,7 @@
 
 /**
  * VX_INT16_MIN:
- * Define el valor mÌnimo para un tipo de 16 bits con signo.
+ * Define el valor minimo para un tipo de 16 bits con signo.
  * Este valor es -32768, ya que el rango de los enteros con signo de 16 bits es de -32768 a 32767.
  */
 #define VX_INT16_MIN        (-32767 - 1) // Valor minimo para un tipo de 16 bits
@@ -1725,7 +1725,7 @@
 
 /**
 * VX_INT32_MIN:
-* Define el valor mÌnimo para un tipo de 32 bits con signo.
+* Define el valor minimo para un tipo de 32 bits con signo.
 * Este valor es -2147483648, ya que el rango de los enteros con signo de 32 bits es de -2147483648 a 2147483647.
 */
 #define VX_INT32_MIN        (-2147483647 - 1) // Valor minimo para un tipo de 32 bits
@@ -1734,7 +1734,7 @@
 
 /**
  * VX_INT64_MIN:
- * Define el valor mÌnimo para un tipo de 64 bits con signo.
+ * Define el valor minimo para un tipo de 64 bits con signo.
  * Este valor es -9223372036854775808, ya que el rango de los enteros con signo de 64 bits es de -9223372036854775808 a 9223372036854775807.
  */
 #define VX_INT64_MIN        (-9223372036854775807 - 1) // Valor minimo para un tipo de 64 bits
@@ -1744,7 +1744,7 @@
 // Definicion de valores maximos para enteros con signo
 /**
  * VX_INT8_MAX:
- * Define el valor m·ximo para un tipo de 8 bits con signo.
+ * Define el valor m√°ximo para un tipo de 8 bits con signo.
  * Este valor es 127, ya que el rango de los enteros con signo de 8 bits es de -128 a 127.
  */
 #define VX_INT8_MAX         (0x7F) // Valor maximo para un tipo de 8 bits
@@ -1753,7 +1753,7 @@
 
 /**
  * VX_INT16_MAX:
- * Define el valor m·ximo para un tipo de 16 bits con signo.
+ * Define el valor maximo para un tipo de 16 bits con signo.
  * Este valor es 32767, ya que el rango de los enteros con signo de 16 bits es de -32768 a 32767.
  */
 #define VX_INT16_MAX        (0x7FFF) // Valor maximo para un tipo de 16 bits
@@ -1761,7 +1761,7 @@
 
 /**
 * VX_INT32_MAX:
-* Define el valor m·ximo para un tipo de 32 bits con signo.
+* Define el valor maximo para un tipo de 32 bits con signo.
 * Este valor es 2147483647, ya que el rango de los enteros con signo de 32 bits es de -2147483648 a 2147483647.
 */
 #define VX_INT32_MAX        (0x7FFFFFFF) // Valor maximo para un tipo de 32 bits
@@ -1770,7 +1770,7 @@
 // Definicion de valores maximos para enteros sin signo
 /**
  * VX_UINT8_MAX:
- * Define el valor m·ximo para un tipo de 8 bits sin signo.
+ * Define el valor maximo para un tipo de 8 bits sin signo.
  * Este valor es 255, ya que el rango de los enteros sin signo de 8 bits es de 0 a 255.
  */
 #define VX_UINT8_MAX        (0xFFU) // Valor maximo para un tipo de 8 bits sin signo
@@ -1779,31 +1779,31 @@
 
 /**
  * VX_UINT16_MAX:
- * Define el valor m·ximo para un tipo de 16 bits sin signo.
+ * Define el valor maximo para un tipo de 16 bits sin signo.
  * Este valor es 65535, ya que el rango de los enteros sin signo de 16 bits es de 0 a 65535.
  */
 #define VX_UINT16_MAX       (0xFFFFU) // Valor maximo para un tipo de 16 bits sin signo
 
 /**
  * VX_UINT32_MAX:
- * Define el valor m·ximo para un tipo de 32 bits sin signo.
+ * Define el valor maximo para un tipo de 32 bits sin signo.
  * Este valor es 4294967295, ya que el rango de los enteros sin signo de 32 bits es de 0 a 4294967295.
  */
 #define VX_UINT32_MAX       (0xFFFFFFFFU) // Valor maximo para un tipo de 32 bits sin signo
 
 
-// Definicion de cÛdigos de Èxito y fracaso
+// Definicion de codigos de √©xito y fracaso
 /**
 * VX_SUCCESS:
-* Define el valor 0 como el cÛdigo de Èxito.
-* Este valor es utilizado para indicar que una operaciÛn o funciÛn se ha completado correctamente.
+* Define el valor 0 como el codigo de √©xito.
+* Este valor es utilizado para indicar que una operaci√≥n o funci√≥n se ha completado correctamente.
 */
 #define VX_SUCCESS (0)
 
 /**
 * VX_FAILURE:
-* Define el valor 1 como el cÛdigo de fracaso.
-* Este valor es utilizado para indicar que una operaciÛn o funciÛn ha fallado.
+* Define el valor 1 como el c√≥digo de fracaso.
+* Este valor es utilizado para indicar que una operaci√≥n o funci√≥n ha fallado.
 */
 #define VX_FAILURE (1)
 
@@ -1811,15 +1811,15 @@
 /**
  * __VX_INITIAL_CAPACITY__:
  * Define la capacidad inicial para una estructura de datos que puede expandirse.
- * Si no est· definida previamente, la capacidad inicial se establece en 4.
- * Esto es ˙til en colecciones o estructuras din·micas como listas o vectores donde se define un valor inicial de capacidad antes de que la colecciÛn crezca.
+ * Si no est√° definida previamente, la capacidad inicial se establece en 4.
+ * Esto es √∫til en colecciones o estructuras din√°micas como listas o vectores donde se define un valor inicial de capacidad antes de que la colecci√≥n crezca.
  */
 #ifndef __VX_INITIAL_CAPACITY__
 	#define __VX_INITIAL_CAPACITY__ 4
 #else
 
 	/**
-	 * Si __VX_INITIAL_CAPACITY__ ya est· definida, no se vuelve a definir para evitar redefiniciÛn innecesaria.
+	 * Si __VX_INITIAL_CAPACITY__ ya esta definida, no se vuelve a definir para evitar redefinici√≥n innecesaria.
 	 */
 	#define __VX_INITIAL_CAPACITY__ 0
 #endif
@@ -1829,11 +1829,11 @@
 // Si estamos en una CPU de 64 bits se define VX_UINT64_MAX con su valor correspondiente
 /**
  * VX_UINT64_MAX:
- * Si la opciÛn VX_USE_64_BIT_FOR_DEFINES est· habilitada (indicando que estamos en una CPU de 64 bits),
- * se define VX_UINT64_MAX con el valor m·ximo posible para un entero sin signo de 64 bits. Este valor es
+ * Si la opci√≥n VX_USE_64_BIT_FOR_DEFINES est√° habilitada (indicando que estamos en una CPU de 64 bits),
+ * se define VX_UINT64_MAX con el valor m√°ximo posible para un entero sin signo de 64 bits. Este valor es
  * `0xFFFFFFFFFFFFFFFFU`, que es 18446744073709551615 en decimal.
  *
- * Si no estamos en una CPU de 64 bits, entonces se define VX_UINT64_MAX con el valor m·ximo de un entero
+ * Si no estamos en una CPU de 64 bits, entonces se define VX_UINT64_MAX con el valor maximo de un entero
  * sin signo de 32 bits (`VX_UINT32_MAX`), que es 4294967295 (0xFFFFFFFF).
  */
 #if VX_USE_64_BIT_FOR_DEFINES
@@ -1847,11 +1847,11 @@
 // Definicion del valor maximo para un entero con signo de 64 bits
 /**
  * VX_INT64_MAX:
- * Si la opciÛn VX_USE_64_BIT_FOR_DEFINES est· habilitada (indicando que estamos en una CPU de 64 bits),
- * se define VX_INT64_MAX con el valor m·ximo posible para un entero con signo de 64 bits. Este valor es
+ * Si la opci√≥n VX_USE_64_BIT_FOR_DEFINES est√° habilitada (indicando que estamos en una CPU de 64 bits),
+ * se define VX_INT64_MAX con el valor m√°ximo posible para un entero con signo de 64 bits. Este valor es
  * `0x7FFFFFFFFFFFFFFF`, que es 9223372036854775807 en decimal.
  *
- * Si no estamos en una CPU de 64 bits, entonces se define VX_INT64_MAX con el valor m·ximo de un entero
+ * Si no estamos en una CPU de 64 bits, entonces se define VX_INT64_MAX con el valor maximo de un entero
  * con signo de 32 bits (`VX_INT32_MAX`), que es 2147483647 (0x7FFFFFFF).
  */
 #if VX_USE_64_BIT_FOR_DEFINES
@@ -1864,9 +1864,9 @@
 
 #if defined(VX_CPLUSPLUS)
 	/**
-	 * Si estamos en C++, definimos el valor m·ximo para un enumerado en diferentes tamaÒos de bits.
-	 * En C++, los valores de los enumerados pueden tener un tamaÒo de 8, 16, 32 y 64 bits, por lo tanto,
-	 * se definen los valores m·ximos posibles para cada uno de esos tamaÒos.
+	 * Si estamos en C++, definimos el valor m√°ximo para un enumerado en diferentes tama√±os de bits.
+	 * En C++, los valores de los enumerados pueden tener un tama√±o de 8, 16, 32 y 64 bits, por lo tanto,
+	 * se definen los valores m√°ximos posibles para cada uno de esos tama√±os.
 	 */
 	
 	 // Definicion del valor maximo para un enumerado de 8 bits con signo
@@ -1887,23 +1887,23 @@
 	#define VX_MAX_ENUM_32_BITS_UNSIGNED (VX_UINT32_MAX) // Valor maximo para un entero sin signo de 32 bits
 	#define VX_MAX_ENUM_64_BITS_UNSIGNED (VX_UINT64_MAX) // Valor maximo para un entero sin signo de 64 bits
 	
-	// Definicion del valor maximo general para los enumerados, que ser· el valor maximo para un entero con signo de 32 bits
+	// Definicion del valor maximo general para los enumerados, que ser√° el valor maximo para un entero con signo de 32 bits
 	#define VX_MAX_ENUM (VX_INT32_MAX)
 
 #else
 	/**
-	 * Si estamos en C, el tamaÒo m·ximo para un enumerado est· limitado a 32 bits y no puede ser mayor.
-	 * Debido a esta restricciÛn, todos los valores de los enumerados en C ser·n el valor m·ximo de un entero de 32 bits.
-	 * Adem·s, los valores m·ximos de los enumerados sin signo siguen siendo los mismos que para los enteros sin signo de 8, 16, 32 y 64 bits.
+	 * Si estamos en C, el tama√±o maximo para un enumerado est√° limitado a 32 bits y no puede ser mayor.
+	 * Debido a esta restricci√≥n, todos los valores de los enumerados en C ser√°n el valor m√°ximo de un entero de 32 bits.
+	 * Ademas, los valores m√°ximos de los enumerados sin signo siguen siendo los mismos que para los enteros sin signo de 8, 16, 32 y 64 bits.
 	 */
 	
-	  // En C, los enumerados siempre son de 32 bits, por lo que todos los valores m·ximos se definen con VX_INT32_MAX
+	  // En C, los enumerados siempre son de 32 bits, por lo que todos los valores m√°ximos se definen con VX_INT32_MAX
 	#define VX_MAX_ENUM_8_BITS (VX_INT32_MAX) // 2147483647, valor maximo para un entero con signo de 32 bits
 	#define VX_MAX_ENUM_16_BITS (VX_INT32_MAX) // 2147483647, valor maximo para un entero con signo de 32 bits
 	#define VX_MAX_ENUM_32_BITS (VX_INT32_MAX) // 2147483647, valor maximo para un entero con signo de 32 bits
 	#define VX_MAX_ENUM_64_BITS (VX_INT32_MAX) // 2147483647, valor maximo para un entero con signo de 32 bits
 	
-	// Los valores m·ximos de los enumerados sin signo se definen con los valores m·ximos de los enteros sin signo de 8, 16, 32 y 64 bits
+	// Los valores maximos de los enumerados sin signo se definen con los valores m√°ximos de los enteros sin signo de 8, 16, 32 y 64 bits
 	#define VX_MAX_ENUM (VX_INT32_MAX) // El valor maximo general es igual al de un entero con signo de 32 bits
 	#define VX_MAX_ENUM_8_BITS_UNSIGNED (VX_UINT8_MAX) // 255, valor maximo para un entero sin signo de 8 bits
 	#define VX_MAX_ENUM_16_BITS_UNSIGNED (VX_UINT16_MAX) // 65535, valor maximo para un entero sin signo de 16 bits
@@ -1916,14 +1916,14 @@
 #ifndef _VX_SIZE_MAX_ // Verificamos si no se ha definido previamente _VX_SIZE_MAX_
 
 	/**
-	 * Si _VX_SIZE_MAX_ no est· definido, lo definimos con el valor m·ximo
+	 * Si _VX_SIZE_MAX_ no est√° definido, lo definimos con el valor maximo
 	 * para un entero de 64 bits sin signo (VX_UINT64_MAX), que es 18446744073709551615.
 	 */
 	#define _VX_SIZE_MAX_  VX_UINT64_MAX
 #else 
 
 	/**
-	 * Si _VX_SIZE_MAX_ ya est· definido previamente, no realizamos cambios.
+	 * Si _VX_SIZE_MAX_ ya esta definido previamente, no realizamos cambios.
 	 * Esto permite que la constante ya definida en otro lugar se utilice.
 	 */
 	#define _VX_SIZE_MAX_
@@ -1934,53 +1934,53 @@
 
 // Definicion de constantes para el tipo de datos flotante (float)
 
-// Valor minimo representable para un tipo float (32 bits), es el valor m·s pequeÒo distinto de 0
+// Valor minimo representable para un tipo float (32 bits), es el valor m√°s peque√±o distinto de 0
 #define VX_FLOAT_MIN          1.175494351e-38F 
 
-// Valor m·ximo representable para un tipo float (32 bits), es el valor m·s grande que puede almacenar
+// Valor m√°ximo representable para un tipo float (32 bits), es el valor m√°s grande que puede almacenar
 #define VX_FLOAT_MAX          3.402823466e+38F 
 
-// La diferencia m·s pequeÒa entre 1.0 y el siguiente valor representable para un tipo float (32 bits)
+// La diferencia m√°s peque√±a entre 1.0 y el siguiente valor representable para un tipo float (32 bits)
 #define VX_FLOAT_EPSILON      1.192092896e-07F
 
-// El exponente m·s pequeÒo que un tipo float puede representar, se corresponde con la menor potencia de 10
+// El exponente m√°s peque√±o que un tipo float puede representar, se corresponde con la menor potencia de 10
 #define VX_FLOAT_MIN_10_EXP   (-37)                   
 
-// El exponente mÌnimo en base 2 que un tipo float puede representar
+// El exponente m√≠nimo en base 2 que un tipo float puede representar
 #define VX_FLOAT_MIN_EXP      (-125)   
 
-// El radix de los n˙meros flotantes, es decir, la base del sistema numÈrico utilizado (en este caso base 2 para los flotantes de IEEE-754)
+// El radix de los n√∫meros flotantes, es decir, la base del sistema num√©rico utilizado (en este caso base 2 para los flotantes de IEEE-754)
 #define VX_FLOAT_RADIX        2
 
 
-// DefiniciÛn de constantes para el tipo de datos doble (double)
+// Definicion de constantes para el tipo de datos doble (double)
 
-// Valor mÌnimo representable para un tipo double (64 bits), es el valor m·s pequeÒo distinto de 0
+// Valor minimo representable para un tipo double (64 bits), es el valor mas peque√±o distinto de 0
 #define VX_DOUBLE_MIN         2.2250738585072014e-308
 
-// Valor m·ximo representable para un tipo double (64 bits), es el valor m·s grande que puede almacenar
+// Valor m√°ximo representable para un tipo double (64 bits), es el valor m√°s grande que puede almacenar
 #define VX_DOUBLE_MAX         1.7976931348623158e+308
 
-// La diferencia m·s pequeÒa entre 1.0 y el siguiente valor representable para un tipo double (64 bits)
+// La diferencia mas peque√±a entre 1.0 y el siguiente valor representable para un tipo double (64 bits)
 #define VX_DOUBLE_EPSILON     2.2204460492503131e-016
 
-// El valor m·s pequeÒo representable para un tipo double, distinto de cero
+// El valor mas peque√±o representable para un tipo double, distinto de cero
 #define VX_DOUBLE_TRUE_MIN    4.9406564584124654e-324
 
-// Valor mÌnimo representable para un tipo double, igual que el anterior pero explÌcitamente reiterado
+// Valor m√≠nimo representable para un tipo double, igual que el anterior pero expl√≠citamente reiterado
 #define VX_DOUBLE_MIN         2.2250738585072014e-308 
 
-// El exponente m·s pequeÒo que un tipo double puede representar, se corresponde con la menor potencia de 10
+// El exponente mas peque√±o que un tipo double puede representar, se corresponde con la menor potencia de 10
 #define VX_DOUBLE_MIN_10_EXP  (-307)   
 
-// El radix de los n˙meros flotantes de tipo double, igual que en float, en este caso tambiÈn es base 2
+// El radix de los numeros flotantes de tipo double, igual que en float, en este caso tambi√©n es base 2
 #define VX_DOUBLE_RADIX       2  
 
 
 
 
 /*
-* Estas definiciones ayudan a obtener el tamaÒo maximo de un array
+* Estas definiciones ayudan a obtener el tama√±o maximo de un array
 */
 #ifndef _VX_ARRAY_SIZE_ // Optimizacion en tiempo de compilacion
 	#define _VX_ARRAY_SIZE_(arr) (sizeof(arr) / sizeof(arr[0]))
@@ -1994,7 +1994,7 @@
 
 
 
-// Define el bloque extern "C" para indicar que el cÛdigo siguiente es de enlace C
+// Define el bloque extern "C" para indicar que el c√≥digo siguiente es de enlace C
 // Esto permite que las funciones y variables sean accesibles desde otros lenguajes o programas escritos en C
 #define VX_EXTERN_C_BEGIN extern "C" { // Define extern "C" en tiempo de compilacion
 
@@ -2003,24 +2003,24 @@
 
 
 // Si estamos compilando con un compilador de C++, definimos el espacio de nombres "vertex::internal".
-// Esto se usa para organizar el cÛdigo y definir una separaciÛn clara entre las funcionalidades
-// p˙blicas de Vertex Engine y su implementaciÛn interna o privada.
+// Esto se usa para organizar el c√≥digo y definir una separaci√≥n clara entre las funcionalidades
+// p√∫blicas de Vertex Engine y su implementaci√≥n interna o privada.
 #if defined(VX_CPLUSPLUS)
 
 	/*
-	* Espacio de nombres para cÛdigo fuente relativamente interno o privado
+	* Espacio de nombres para c√≥digo fuente relativamente interno o privado
 	* de Vertex Engine.
 	*
 	* El uso de espacios de nombres permite evitar conflictos de nombres y
-	* organizar mejor el cÛdigo. En este caso, "vertex::internal" indica que
-	* el cÛdigo que sigue es parte de la implementaciÛn interna de Vertex Engine,
-	* lo cual ayuda a gestionar el acceso y evitar que el cÛdigo externo
-	* (usuarios o clientes) interact˙e con Èl directamente.
+	* organizar mejor el c√≥digo. En este caso, "vertex::internal" indica que
+	* el c√≥digo que sigue es parte de la implementaci√≥n interna de Vertex Engine,
+	* lo cual ayuda a gestionar el acceso y evitar que el c√≥digo externo
+	* (usuarios o clientes) interact√∫e con √©l directamente.
 	*/
 	#define VX_INTERNAL_BEGIN namespace vertex::internal { 
 
 	// Si no estamos compilando con un compilador de C++, no utilizamos espacios de nombres
-	// en el cÛdigo, por lo que no es necesario definir nada aquÌ.
+	// en el codigo, por lo que no es necesario definir nada aqu√≠.
 #else
 	#define VX_INTERNAL_BEGIN
 #endif // ^^^defined(VX_CPLUSPLUS)^^^
